@@ -1,0 +1,24 @@
+
+<svg xmlns='http://www.w3.org/2000/svg' width='519' height='62.3' viewBox='0 0 1000 120'>
+    <defs>
+        <filter id="noise">
+            <feTurbulence 
+                type='fractalNoise' 
+                baseFrequency='1.93' 
+                numOctaves='2' 
+                stitchTiles='stitch'
+            />
+            <feColorMatrix in="colorNoise" type="matrix" values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0"/>
+            <feComposite operator="in" in2="SourceGraphic" result="monoNoise"/>
+            <feBlend in="SourceGraphic" in2="monoNoise" mode="multiply" />
+        </filter>
+    </defs>
+    <g fill='none' filter='none' stroke='#cb6e76' stroke-width='3' stroke-opacity='0.12'>
+        <path d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/>
+        <path d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/>
+        <path d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/>
+        <path d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/>
+        <path d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/>
+        <path d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/>
+    </g>
+</svg>

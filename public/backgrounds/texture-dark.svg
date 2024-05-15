@@ -1,0 +1,23 @@
+
+<svg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' viewBox='0 0 700 1200' width='700' height='1200' opacity='0.96'>
+    <defs>
+        <filter id='nnnoise-filter' x='-20%' y='-20%' width='140%' height='140%' filterUnits='objectBoundingBox' primitiveUnits='userSpaceOnUse' color-interpolation-filters='linearRGB'>
+            <feTurbulence type='turbulence' baseFrequency='0.102' numOctaves='5' seed='15' stitchTiles='stitch' x='0%' y='0%' width='100%' height='100%' result='turbulence'></feTurbulence>
+            <feSpecularLighting surfaceScale='15' specularConstant='0.75' specularExponent='20' lighting-color='#3caba2' x='0%' y='0%' width='100%' height='100%' in='turbulence' result='specularLighting'>
+                <feDistantLight azimuth='1' elevation='30'></feDistantLight>
+            </feSpecularLighting>
+        </filter>
+        <radialGradient id='ffflux-gradient'>
+            <stop offset='0%' stop-color='#3caba2'></stop>
+            <stop offset='100%' stop-color='#282a36'></stop>
+        </radialGradient>
+        <filter id='ffflux-filter' x='-20%' y='-20%' width='140%' height='140%' filterUnits='objectBoundingBox' primitiveUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+            <feTurbulence type='fractalNoise' baseFrequency='0.104 0.104' numOctaves='2' seed='105' stitchTiles='stitch' x='0%' y='0%' width='100%' height='100%' result='turbulence'></feTurbulence>
+            <feGaussianBlur stdDeviation='12 24' x='0%' y='0%' width='100%' height='100%' in='turbulence' edgeMode='duplicate' result='blur'></feGaussianBlur>
+            <feBlend mode='color' x='0%' y='0%' width='100%' height='100%' in='SourceGraphic' in2='blur' result='blend'></feBlend>
+        </filter>
+    </defs>
+    <rect width='700' height='1200' fill='transparent'></rect>
+    <rect width='700' height='1200' opacity='.4' fill='#282a36' filter='url(#nnnoise-filter)'></rect>
+    <rect width='700' height='1200' opacity='.3' fill='url(#ffflux-gradient)' filter='url(#ffflux-filter)'></rect>
+</svg>
