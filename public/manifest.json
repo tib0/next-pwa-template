@@ -1,0 +1,94 @@
+{
+  "name": "Next PWA  Template",
+  "short_name": "NPT",
+  "description": "A template for Next.js PWA",
+  "theme_color": "#423d43",
+  "background_color": "#d8d8ba",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/",
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "previews/image1.png",
+      "sizes": "2938x2126",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Portrait preview"
+    },
+    {
+      "src": "previews/image2.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "label": "Landscape preview"
+    }
+  ],
+  "icons": [
+    {
+      "src": "icons/16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/120x120.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
