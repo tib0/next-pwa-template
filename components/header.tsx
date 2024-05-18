@@ -112,7 +112,7 @@ const Header = ({}: any) => {
         </div>
         <div className="navbar-end hidden md:flex pr-1">
           {/* DESKTOP */}
-          <label className="swap swap-rotate px-2">{themeSwap}</label>
+          <label aria-label="Swap theme" className="swap swap-rotate px-2">{themeSwap}</label>
         </div>
       </div>
     </>
