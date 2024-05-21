@@ -1,10 +1,20 @@
-import Dexie from "dexie";
+import Dexie, { Table } from "dexie";
+import { IItem } from "./types/item";
+/* 
+const db = new Dexie("database");
+db.version(1).stores({
+  item: "++id, name, cat",
+}); */
 
-const database = new Dexie("database");
-database.version(1).stores({
-  item: '++id, name, cat',
-});
+export class DB extends Dexie {
+  items!: Table<IItem>;
+  constructor() {
+    super("myDb");
+    this.version(1).stores({
+      items: "++id, name, cat",
+    });
+  }
+}
 
-export const itemTable = database.table('item');
-
-export default database;
+export const db = new DB();
+export const itemTable = db.table("items");
