@@ -1,19 +1,33 @@
+<p align="center" width="100%">
+  <img width="33%" src="./public/npt-logo-512x512.png">
+</p>
+
 # NextJS PWA Template
 
 ### A GitHub Template for TypeScript-Powered Progressive Web Apps 🚀
 
 The NextJS PWA Template is a comprehensive GitHub template that combines the power of Next.js
-14, Servist, DaisyUI, React, and Tailwind CSS to create cutting-edge, TypeScript-powered
+14, Servist, DaisyUI, React, Dexie and Tailwind CSS to create cutting-edge, TypeScript-powered
 Progressive Web Apps (PWAs).
 
-This template aims to streamline the process of building and deploying PWAs on GitHub.
+This template aims to streamline the process of building and deploying PWAs.
+
+## To get started with this template:
+
+1. Fork the repository on GitHub.
+
+1. Install dependencies by running `npm install` or `yarn install`.
+
+1. Start developing your PWA using the Next.js by running `npm dev` or `yarn dev`.
+
+Enjoy building your next-gen PWA with the NextJS PWA Template!
 
 ## Key Features:
 
 **Next.js 14**: A powerful framework for building high-performance web applications with
 server-side rendering and automatic code splitting.
 
-**Servist**: A lightweight, zero-configuration static site generator that simplifies the
+**Serwist**: A lightweight, zero-configuration static site generator that simplifies the
 deployment process.
 
 **DaisyUI**: A beautiful, responsive UI component library based on Tailwind CSS, providing a
@@ -27,6 +41,9 @@ with a focus on responsiveness and accessibility.
 
 **TypeScript**: A statically typed superset of JavaScript that provides better code
 comprehension, catch errors at compile-time, and enhances developer productivity.
+
+**Dexie**: A lightweight and fast in-memory database that simplifies data management and
+retrieval. Indexdb is used to provide offline support.
 
 ## Benefits:
 
@@ -50,12 +67,7 @@ and scalability for future growth.
 - **Enhanced development experience**: TypeScript's static typing and ESLint integration help
   catch errors early on, improving code quality and developer productivity.
 
-## To get started with this template:
+## Ressources:
 
-1. Fork the repository on GitHub.
-
-1. Install dependencies by running `npm install` or `yarn install`.
-
-1. Start developing your PWA using the Next.js by running `npm dev` or `yarn dev`.
-
-Enjoy building your next-gen PWA with the NextJS PWA Template!
+[PWA Factory](https://pwa-factory.com/): A tool for creating Progressive Web Apps manifest
+files and icons.

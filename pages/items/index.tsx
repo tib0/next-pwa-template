@@ -1,25 +1,27 @@
 import { db, itemTable } from "@/db/database.config";
 import { IItem } from "@/db/types/item";
 import { NextPageWithLayout } from "../_app";
-import { ReactElement, useCallback, useState } from "react";
+import { ReactElement, useCallback } from "react";
 import HomeLayout from "@/layout/home";
 import Head from "next/head";
 import { useLiveQuery } from "dexie-react-hooks";
 
-const Add: NextPageWithLayout = () => {
-  const [items, setItems] = useState({ name: "", cat: "", id: null });
+const Items: NextPageWithLayout = () => {
   const itemsList = useLiveQuery(() => db.items.toArray());
 
-  const updateItem = useCallback(async () => {
-    if (items?.id && items?.name && items?.cat) {
-      await db.items.put({
-        id: items?.id,
-        name: items?.name,
-        cat: Number(items?.cat),
-      });
-      setItems({ name: "", cat: "", id: null });
+  const updateItem = async (i: IItem) => {
+    const item: IItem = {
+      id: i.id,
+      name: i.name + "-updated",
+      cat: Number(i.cat),
+    };
+    try {
+      const id = await itemTable.put(item);
+      console.info(`An item was updated ${id}`);
+    } catch (error) {
+      console.error(`Failed to update ${i.id}: ${error}`);
     }
-  }, [items]);
+  };
 
   const deleteItem = useCallback(async (id: any) => {
     await db.items.delete(id);
@@ -39,17 +41,16 @@ const Add: NextPageWithLayout = () => {
       console.error(`Failed to add ${item}: ${error}`);
     }
   };
+
   return (
     <div
       className={`
-        pt-16 sm:pt-16 
-        p-2 sm:p-4 
         flex flex-col items-center
         justify-center
         gap-3
       `}
     >
-      <h1>Create item</h1>
+      <h1 className="font-bold">Create item</h1>
       <form
         onSubmit={createItem}
         className={`
@@ -58,61 +59,74 @@ const Add: NextPageWithLayout = () => {
         `}
       >
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          className="shadow-xl input input-bordered py-0.5 input-md text-base w-full"
+        />
         <label htmlFor="cat">Cat:</label>
-        <input type="number" id="cat" name="cat" />
-        <button className="btn btn-primary" type="submit">
+        <input
+          type="number"
+          id="cat"
+          name="cat"
+          className="shadow-xl input input-bordered py-0.5 input-md text-base w-full"
+        />
+        <button className="btn btn-primary shadow-lg" type="submit">
           Create
         </button>
       </form>
-      <div className="overflow-x-auto">
-        <table className="table backdrop-blur-lg bg-opacity-30 bg-base-100">
-          {/* head */}
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Cat</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-            {itemsList && itemsList.map((i) => (<tr key={i.id + '-item-row'}>
-              <th>{i.id}</th>
-              <td>{i.name}</td>
-              <td>{i.cat}</td>
-              <td>
-                <div 
-                  className="btn btn-xs btn-primary" 
-                  onClick={() => deleteItem(i.id)}
-                >
-                  Delete
-                </div>
-                <div 
-                  className="btn btn-xs btn-primary" 
-                  onClick={() => deleteItem(i.id)}
-                >
-                  Delete
-                </div>
-              </td>
-            </tr>))}
-          </tbody>
-        </table>
-      </div>
+      {itemsList && itemsList?.length > 0 && (
+        <div className="overflow-x-auto">
+          <table className="table backdrop-blur-lg bg-opacity-30 bg-base-100">
+            <thead>
+              <tr>
+                <th></th>
+                <th className="w-44">Name</th>
+                <th className="w-16">Cat</th>
+                <th className="w-16">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {itemsList &&
+                itemsList.map((i: IItem) => (
+                  <tr key={i.id + "-item-row"}>
+                    <th>{i.id}</th>
+                    <td>{i.name}</td>
+                    <td>{i.cat}</td>
+                    <td
+                      className={`
+                        flex flex-col items-center
+                        justify-center
+                        gap-3
+                      `}
+                    >
+                      <div className="btn btn-xs btn-primary shadow-md" onClick={() => deleteItem(i.id)}>
+                        Delete
+                      </div>
+                      <div className="btn btn-xs btn-primary shadow-md" onClick={() => updateItem(i)}>
+                        Update
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };
 
-Add.getLayout = function getLayout(page: ReactElement) {
+Items.getLayout = function getLayout(page: ReactElement) {
   return (
     <HomeLayout>
       <Head>
-        <title>{"Add item - " + process.env.NEXT_PUBLIC_APP_NAME}</title>
+        <title>{"Items - " + process.env.NEXT_PUBLIC_APP_NAME}</title>
       </Head>
       {page}
     </HomeLayout>
   );
 };
 
-export default Add;
+export default Items;

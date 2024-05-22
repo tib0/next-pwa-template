@@ -1,10 +1,5 @@
 import Dexie, { Table } from "dexie";
 import { IItem } from "./types/item";
-/* 
-const db = new Dexie("database");
-db.version(1).stores({
-  item: "++id, name, cat",
-}); */
 
 export class DB extends Dexie {
   items!: Table<IItem>;

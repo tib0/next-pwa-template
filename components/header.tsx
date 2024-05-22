@@ -29,11 +29,23 @@ const Header = ({}: any) => {
           Home
         </Link>
       </li>
+      <li key={"dbLink" + src}>
+        <Link
+          key="dbLink"
+          className={`
+            mx-2 font-light text-lg
+          `}
+          href="/items"
+        >
+          DB
+        </Link>
+      </li>
       <li key={"aboutLink" + src}>
         <Link
           key="aboutLink"
           className={`
-          mx-2 font-light text-lg`}
+            mx-2 font-light text-lg
+          `}
           href="/about"
         >
           About
